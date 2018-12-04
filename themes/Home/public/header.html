@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title></title>
+    <link rel="stylesheet" href="__HOME__/v1.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="__HOME__/v1.0/css/product-icon.css"/>
+    <link rel="stylesheet" href="__HOME__/v1.0/css/globe.css"/>
+    <link rel="stylesheet" href="__HOME__/v1.0/css/index.css"/>
+    <link rel="stylesheet" href="__HOME__/v1.0/css/index1.css"/>
+    <link rel="Shortcut Icon" href="https://enterprise.huawei.com/cn/ucmf/groups/entwebtemplate/documents/enterprise_webasset/ent_cn_img_logo_ico.ico">
+    <script src="__HOME__/v1.0/js/jquery-1.11.1.min.js"></script>
+    <!-- <base target="_blank" /> -->
+</head>
+<body>
+    <div>
+        <div>
+            <div id="header" class="loaded hidden-print">
+                    <header class="navbar navbar-inverse alicloud-header" role="navigation">
+                            <div>
+                                <div id="navrelative" class="navrelative">
+                                    <nav class="navbar navbar-default" role="navigation">
+                                        <div class="">
+                                            <div class="navbar-header" style="float: left;">
+                                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+                                                    <span class="sr-only">切换导航</span>
+                                                    <span class="icon-bar"></span>
+                                                    <span class="icon-bar"></span>
+                                                    <span class="icon-bar"></span>
+                                                </button>
+                                                <div class="header-menu">
+                                                    <i class="header-icon header-icon-menu"></i>
+                                                </div>
+                                                <a class="navbar-brand" href="{:U('index/index_show')}?lang=cn" target="_blank" style=" display:  inline-block; ">
+                                                    <img src="__HOME__/v1.0/img/HUAWEI-logo-New-white.png" alt="" style="width: 100%"/>
+                                                </a>
+            
+                                                <div class="alicloud-header-navs" style=" display:  inline-block;">
+                                                    <div class="">
+                                                        <div data-toggle="navBar">
+                                                            <ul class="nav navbar-nav alicloud-nav-list" style="float:  left;">
+
+                                                      <!--遍历顶部导航栏 -->    
+                                                              <volist name="nav_top['_data']" id="val">
+                                                                <li class="" data-toggle="navBarMenu" data-target="#dropdown-menu-bh-{$i-1}" aria-expanded="false" style="<?php if($i==1)echo 'padding-right: 20px';?>">
+                                                                    <a  class="normal-cursor <?php if($i==1)echo 'aactive zerotitle';?>" onclick="return false;">{$val.name}</a>
+                                                                </li>
+                                                               </volist>
+                                                         <!--遍历顶部导航栏 --> 
+                                                            </ul>
+                                                            <div class="clear"></div>

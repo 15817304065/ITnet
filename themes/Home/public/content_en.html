@@ -1,0 +1,188 @@
+                          <div class="navbar-fixed-dropdown-menu" id="navbar-content">
+                                    <div class="dropdown-menu-inner" id="dropdown-menu-bh-0" style="opacity: 1; display: block; ">
+                                        <div class="container dropdown-menu-3" style="max-width: 1072px; ">
+                                            <div class="row row-eq-height clearfix">
+                                           
+                                                <div class="xtable">
+                                                    <table class="table table-bordered" style="border:  none; ">
+                                                        <caption style="height: 10px;padding: 0px;"></caption>
+                                                        <thead>
+                                                            <tr>
+                                                             <!--遍历机机会点地图表头start -->   
+                                                                 <volist name="width_arr['table1']" id="val">
+                                                                    <th style="text-align: {$val.position};" width="{$val.width}">{$val.name_en}</th>
+                                                                </volist>
+                                                                <!--遍历机机会点地图表头end --> 
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                            <!--遍历机会点地图start -->                                                                                     
+                                                            <tr>
+                                                            <?php  //var_dump($case_data); die;
+                                                                 foreach ($case_data as $k => $v) {  
+                                                                 $num=0;
+                                                                 $num += count($v['_data'])?count($v['_data']):1;
+                                                                 $j=1; 
+                                                                 foreach ($v['_data'] as $a => $b) { ?>
+                                                           
+                                                                    <td class="<?php if($j!=$num) echo 'bordernone';?>">
+                                                                        <a  target="_blank" <?php if($b['url_en']){echo "href=".$b['url_en'];}?>>{$b['name_en']}</a>
+                                                                    </td>
+
+                                                                    <?php   if($j==1){   ?>
+                                                                           <td rowspan='{$num}' class="cxo">
+                                                                               <a <?php if($v['cxo_url_en']){echo "href=".$v['cxo_url_en'];}?>>{$v['cxo_en']}</a>
+                                                                          </td>
+                                                                          <td rowspan='{$num}' >
+                                                                              <a  <?php if($v['solution_url_en']){echo "href=".$v['solution_url_en'];}?>>{$v['solution_en']}</a>
+                                                                          </td>
+                                                                          <td rowspan='{$num}'>
+                                                                               {$v['offering_en']}
+                                                                          </td>
+
+                                                                    <?php }?>
+                                                                 </tr>
+                                                
+                                                                <?php  $j++;}}?>
+                                             <!--遍历机会点地图end -->   
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    
+                                            <?php $p = 1; foreach($nid as $x=>$y){ ?>                    
+                                                                <div class="dropdown-menu-inner" id="dropdown-menu-bh-{$p}" style="opacity: 0; display: none;">
+                                                                    <div class="container dropdown-menu-3" style="max-width: 1072px; ">
+                                                                        <div class="row row-eq-height clearfix">
+                                                                            <!-- CXO话题 -->
+                                                                            <div class="xtable2">
+                                                                                <table class="table table-bordered" style="border:  none; ">
+                                                                                    <caption style="height: 10px;padding: 0px;"></caption>
+                                                                                    <thead>
+                                                                                       <tr>
+                                                                                             <volist name="width_arr['table2']" id="val">
+                                                                                                <th style="text-align: {$val.position};" width="{$val.width_en}">{$val.name_en}</th>
+                                                                                            </volist>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                       
+                                                                                        <?php foreach($category_data_en[$y] as $k=>$v){
+                                                                                               $count=0;
+                                                                                               $count += count($v['ziliao'])?count($v['ziliao']):1;?>
+                                                                                         <tr>
+                                                                                            <td rowspan="{$count}">{$v['name_en']}</td>
+                                                                                            <?php  if(!empty($v['ziliao'])){  ?>
+                                                                                                   <?php foreach($v['ziliao'] as $a=>$b){ ?>
+                                                                                                        <td>{$b['name_en']}</td>
+                                                                                                        <td align="center">{$b['author']}</td>
+                                                                                                        <td align="center">{$b['createtime']}</td>
+                                                                                                        <td align="center">
+                                                                                                        <?php if(!$b['url']){ ?>
+                                                                                                        NA
+                                                                                                        <?php }else if($b['url']=="to be"){ ?>
+                                                                                                        To Be
+                                                                                                        <?php }else{?>
+                                                                                                         <a href="<?php echo $b['url'];?>" target="_blank">CN</a>
+                                                                                                        <?php }?>
+                                                                                                        </td>
+
+                                                                                                        <td align="center">
+                                                                                                        <?php if(!$b['url_en']){ ?>
+                                                                                                        NA
+                                                                                                        <?php }else if($b['url_en']=="to be"){ ?>
+                                                                                                        To Be
+                                                                                                        <?php }else{?>
+                                                                                                         <a href="<?php echo $b['url_en'];?>" target="_blank">EN</a>
+                                                                                                        <?php }?>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                  <?php }?>
+                                                                                            <?php }else{?>
+                                                                                                        <td></td>
+                                                                                                        <td align="center"></td>
+                                                                                                        <td align="center"></td>
+                                                                                                        <td align="center"></td>
+                                                                                                        <td align="center"></td>
+                                                                                                        </tr>
+                                                                                           <?php }?>
+                                                                                      <?php }?>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                          <?php $p++; }?>
+
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                                                <ul class="nav navbar-nav nav-fan" style="padding-top: 14px;">
+                                                  <li class="sbdemand">
+                                                     <a href="https://e.huawei.com/en/material/MaterialList?id=%7bF710F2E0-F127-4813-9BC0-0E1A41CB62DE%7d" target="_blank">EBG Portal</a>
+                                                  </li>
+                                                    <!-- <li>
+                                                        <a href="#">WEB书架</a>
+                                                    </li> -->
+                                                    <li class="sbdemand">
+                                                        <a href="http://3ms.huawei.com/mm/docNav/mmNavigate.do?method=showChannelColumnHome&amp;tree_id=585&amp;node_id=585" target="_blank">3MS</a>
+                                                    </li>
+                                                    <li class="sbdemand">
+                                                        <a class="enline" href="?lang=cn">CN</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                    </header>
+                        <div>
+                            <div class="header-allnav" meta-data-adjust-app="hide">
+                                <div class="header-allnav-wrapper">
+                                    <ul class="header-allnav-level header-allnav-level1">
+                                        <li class="header-allnav-inner show">
+                                            <ul class="header-allnav-common-list header-allnav-common-list-level1">
+                                    <!-- 导航栏遍历一级 -->    
+                        <?php   foreach($nav_data as $k=>$v){
+                              $en = str_replace('_', '&nbsp;', $v['name_en']);
+                                 $nav_data[$k]['name_en2'] = $en;
+                         }?>                                           
+                                             <volist name="nav_data" id="val">
+                                                   <!-- 加入配置的一级导航菜单 -->
+                                                    <li class="header-allnav-common-item" data-key="nav{$val.id}">
+                                                        <a target="_blank" href="<?php echo U($val['name_en']);?>?lang=en">{$val.name_en2}</a>
+                                                        <i class="header-icon-arrow-right"></i>
+                                                    </li>
+                        
+                                                    <!-- 如果子菜单有属性要求展示在第一级导航，则这里要展示子菜单 -->
+                                             </volist>
+                                    <!-- 导航栏遍历一级end --> 
+                                           
+                                                <li class="header-allnav-common-split"></li>
+                                    <!-- 遍历侧边栏start -->  
+                                             <volist  name="url_data[60]" id="val">  
+                                                <li class="header-allnav-common-item header-nav-hot">
+                                                    <a mate_data_ts="www_v3_top_navigation.click.activity_20170820" href="{$val.url_en}"
+                                                        target="_blank">{$val.name_en}</a>
+                                                </li>
+                                              </volist>
+                                    <!-- 遍历侧边栏start -->    
+
+                                            </ul>
+                                        </li>
+                                    <!--     <li class="header-allnav-consult">
+                                            <div class="header-allnav-consult-text">Further Enquiry</div>
+                                            <a class="header-allnav-consult-number" href="tel:4000-999-888">
+                                                <i class="header-icon header-icon-phone"></i>
+                                                <span>4000-999-888</span>
+                                            </a>
+                                        </li> -->
+                                    </ul>
